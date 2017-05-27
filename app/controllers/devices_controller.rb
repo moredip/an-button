@@ -19,4 +19,14 @@ class DevicesController < ApplicationController
 
     render plain: 'OK'
   end
+
+  def button
+    device_uid = request.body.read
+
+    logger.info('receiving button press from: '+device_uid);
+
+    # TODO
+
+    render plain: 'OK'
+  end
 end

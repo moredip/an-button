@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :devices, path: '/device' do
     collection do
       post 'heartbeat'
+      post 'button'
     end
   end
 end
