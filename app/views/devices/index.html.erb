@@ -2,6 +2,6 @@
 
 <ul>
 <%- @devices.each do |device| %>
-  <li><%=device.uid%></li>
+  <li><%=link_to( device.description, device_path(device.uid) )%></li>
 <% end %>
 </ul>

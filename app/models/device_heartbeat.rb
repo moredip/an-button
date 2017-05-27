@@ -1,0 +1,2 @@
+class DeviceHeartbeat < ApplicationRecord
+end
