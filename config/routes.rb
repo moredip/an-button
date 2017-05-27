@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   
   root 'welcome#index'
 
-  resources :devices
+  resources :devices, path: '/device' do
+    collection do
+      post 'heartbeat'
+    end
+  end
 end
