@@ -2,6 +2,9 @@
 
 <ul>
 <%- @devices.each do |device| %>
-  <li><%=link_to( device.description, device_path(device.uid) )%></li>
+  <li>
+    <%=link_to( device.description, device_path(device.uid) )%>
+    (last seen <%=human_timestamp(device.last_heartbeat)%>)
+  </li>
 <% end %>
 </ul>
