@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   
   root 'welcome#index'
 
-  resources :devices, path: '/device' do
-    collection do
-      post 'heartbeat'
-      post 'button'
-    end
-  end
+  resources :devices, path: '/device', only: [:index, :show]
+
+  post '/dapi/heartbeat', to: 'device_api#heartbeat'
+  post '/dapi/button', to: 'device_api#button'
 end

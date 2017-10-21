@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  protect_from_forgery except: :heartbeat
+  protect_from_forgery
 
   def index
     @devices = Device.all
@@ -7,26 +7,5 @@ class DevicesController < ApplicationController
 
   def show
     @device = Device.find_by_uid(params[:id])
-  end
-
-  def heartbeat
-    device_uid = request.body.read
-    logger.info('receiving heartbeat from: '+device_uid);
-
-    Device
-      .find_or_create_by_uid(device_uid)
-      .record_heartbeat
-
-    render plain: 'OK'
-  end
-
-  def button
-    device_uid = request.body.read
-
-    logger.info('receiving button press from: '+device_uid);
-
-    # TODO
-
-    render plain: 'OK'
   end
 end
