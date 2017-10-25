@@ -21,7 +21,8 @@ class TwilioClient
     call = @client.calls.create(
       from: @outgoing_number,
       to: number,
-      url: 'http://twimlets.com/message?Message%5B0%5D=Thanks%20for%20using%20An%20Button!%20Have%20a%20nice%20day.'
+      url: 'http://twimlets.com/message?Message%5B0%5D=Thanks%20for%20using%20An%20Button!%20Have%20a%20nice%20day.',
+      machine_detection: 'Enable'
     )
     puts call.sid
   end
