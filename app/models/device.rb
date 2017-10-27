@@ -20,6 +20,6 @@ class Device < ApplicationRecord
   end
 
   def last_heartbeat
-    heartbeats.order(created_at: :desc, id: :desc).first.created_at
+    heartbeats.order(created_at: :desc, id: :desc).first&.created_at
   end
 end
