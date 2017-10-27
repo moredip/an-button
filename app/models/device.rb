@@ -10,7 +10,8 @@ class Device < ApplicationRecord
   end
 
   def record_heartbeat
-    heartbeats.create
+    logger.info("received a heartbeat from device ##{uid}")
+    #heartbeats.create
   end
 
   def react_to_button_press
