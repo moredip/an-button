@@ -20,6 +20,6 @@ class ButtonReactor < ApplicationRecord
   def find_my_iphone(username_and_password_and_device)
     username,password,deviceId = JSON.parse(username_and_password_and_device)
     locator = IOSDeviceLocator.new( username, password )
-    locator.playSound(deviceId)
+    locator.playSound(deviceId,'Button Calling')
   end
 end
