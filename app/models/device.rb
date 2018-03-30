@@ -11,7 +11,9 @@ class Device < ApplicationRecord
 
   def record_heartbeat
     logger.info("received a heartbeat from device ##{uid}")
-    #heartbeats.create
+    
+    # disabling recording heartbeat since it was blowing through our Heroku data usage
+    #heartbeats.create 
   end
 
   def react_to_button_press
