@@ -195,9 +195,9 @@ class IOSDeviceLocator
       }
       body = JSON.generate(clientContext.merge(options))
 
-      Typhoeus::Request.post(uri, userpwd: "#{@username}:#{@password}", headers: post_headers, followlocation: true, verbose: false, maxredirs: 10, body: body)
+      Typhoeus::Request.post(uri, userpwd: "#{@username}:#{@password}", headers: post_headers, followlocation: true, verbose: false, maxredirs: 10, body: body, ssl_verifypeer: false)
     else
-      Typhoeus::Request.post(uri, userpwd: "#{@username}:#{@password}", headers: post_headers, followlocation: true, verbose: false, maxredirs: 10)
+      Typhoeus::Request.post(uri, userpwd: "#{@username}:#{@password}", headers: post_headers, followlocation: true, verbose: false, maxredirs: 10, ssl_verifypeer: false)
     end
   end
 
