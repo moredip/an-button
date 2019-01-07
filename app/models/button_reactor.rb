@@ -7,6 +7,8 @@ class ButtonReactor < ApplicationRecord
       self.call_phone(self.reaction_param)
     when 'find_my_iphone'
       self.find_my_iphone(self.reaction_param)
+    when 'ifttt'
+      self.ifttt(self.reaction_param)
     else
       raise "unrecognized reaction strategy #{self.reaction_strategy}"
     end
@@ -21,5 +23,11 @@ class ButtonReactor < ApplicationRecord
     username,password,deviceId = JSON.parse(username_and_password_and_device)
     locator = IOSDeviceLocator.new( username, password )
     locator.playSound(deviceId,'Button Calling')
+  end
+
+  def ifttt(key_and_event_name)
+    key,event_name = JSON.parse(key_and_event_name)
+    ifttt = IftttClient.new(key)
+    ifttt.trigger_event(event_name)
   end
 end

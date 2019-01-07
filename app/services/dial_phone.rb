@@ -1,2 +1,0 @@
-class DialPhone
-end
